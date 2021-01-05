@@ -57,35 +57,48 @@ const Pokemons = ({ number }: pokeprops) => {
   const fast = pokemon.attacks.fast
   const special = pokemon.attacks.special
 
-  const FastAttacks = fast.map((attack: { name: string }) => <p> {attack.name} </p>)
-  const SpecialAttacks = special.map((attack: { name: string }) => <p> {attack.name} </p>)
+
+
+  const FastAttacks = fast.map((attack, index) => <p key={index}> {attack.name} </p>)
+
+  const SpecialAttacks = special.map((attack, index) => <p key={index}> {attack.name} </p>)
+
+  const Weaknesses = pokemon.weaknesses.map((weakness, index) => <p key={index}> {weakness} </p>)
+
+  const Resistances = pokemon.resistant.map((resistance, index) => <p key={index}> {resistance} </p>)
 
   return (
     <div>
-      <img
-        className="Image"
-        src={data.pokemons[number].image}
-        alt={"image of " + data.pokemons[number].name}
-      />
-      <poke-name name={pokemon.name}/>
-      <h3>
-        Number {pokeParser(number)}
-      </h3>
-      <div>
-        <h3>Weaknesses:</h3>
-        {pokemon.weaknesses}
+      <div className="Section">
+        <img
+          className="Image"
+          src={data.pokemons[number].image}
+          alt={"image of " + data.pokemons[number].name}
+        />
+        <poke-name name={pokemon.name}/>
+        <h3>
+          Number {pokeParser(number)}
+        </h3>
       </div>
-      <div>
-        <h3>Resistances:</h3>
-        {pokemon.resistant}
+      <div className="Row">
+        <div className="Section">
+          <h3>Weaknesses:</h3>
+          {Weaknesses}
+        </div>
+        <div className="Section">
+          <h3>Resistances:</h3>
+          {Resistances}
+        </div>
       </div>
-      <div>
-        <h3>Fast Attacks:</h3>
-        {FastAttacks}
-      </div>
-      <div>
-        <h3>Special Attacks:</h3>
-        {SpecialAttacks}
+      <div className="Row">
+        <div className="Section">
+          <h3>Fast Attacks:</h3>
+          {FastAttacks}
+        </div>
+        <div className="Section">
+          <h3>Special Attacks:</h3>
+          {SpecialAttacks}
+        </div>
       </div>
     </div>
   )
@@ -96,11 +109,11 @@ function App() {
   const [number, setNumber] = useState(0)
   return (
     <div className="App">
-      <div className="App-header">
-      <Pokemons number={number} />
-      <button className="Button" onClick={()=> setNumber(Math.max(number-1,0))}>Previous</button>
-        <button className="Button" onClick={() => setNumber(Math.min(number + 1, 150))}>Next</button>
+        <div className="ButtonContainer">
+          <button className="Button" onClick={() => setNumber(Math.max(number - 1, 0))}>Prev</button>
+          <button className="Button" onClick={() => setNumber(Math.min(number + 1, 150))}>Next</button>
         </div>
+        <Pokemons number={number} />
     </div>
   );
 }
