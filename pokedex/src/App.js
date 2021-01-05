@@ -4,6 +4,12 @@ import './App.css';
 
 import { gql, useQuery } from '@apollo/client';
 
+import './lit/PokeName'
+
+
+
+
+
 const GET_POKEMONS = gql`
   {
   pokemons(first : 151) {
@@ -61,9 +67,7 @@ const Pokemons = ({ number }: pokeprops) => {
         src={data.pokemons[number].image}
         alt={"image of " + data.pokemons[number].name}
       />
-      <h2>
-        It's {data.pokemons[number].name}!
-      </h2>
+      <poke-name name={pokemon.name}/>
       <h3>
         Number {pokeParser(number)}
       </h3>
