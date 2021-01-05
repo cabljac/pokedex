@@ -4,10 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { ApolloClient, InMemoryCache, ApolloProvider, gql} from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client';
+
+
+const PORT = 'http://localhost:5000' // address of graphql pokemon server
+
+
 
 const client = new ApolloClient({
-  uri: 'http://localhost:5000',
+  uri: PORT,
   cache: new InMemoryCache()
 });
 

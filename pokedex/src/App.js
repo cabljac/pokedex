@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import { gql, useQuery } from '@apollo/client';
@@ -29,7 +28,7 @@ const GET_POKEMONS = gql`
 }
 `
 
-const pokeParser = (num: number) => {
+const pokeParser = (num) => {
   num = num + 1;
   if (num < 10) {
     return "00" + num.toString();
@@ -75,7 +74,7 @@ const Pokemons = ({ number }: pokeprops) => {
           src={data.pokemons[number].image}
           alt={"image of " + data.pokemons[number].name}
         />
-        <poke-name name={pokemon.name}/>
+        <poke-name name={pokemon.name} />  {/* here is my lit element*/ }
         <h3>
           Number {pokeParser(number)}
         </h3>
