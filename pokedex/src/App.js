@@ -55,33 +55,27 @@ const Pokemons = ({ number }: pokeprops) => {
 
   const fast = pokemon.attacks.fast
   const special = pokemon.attacks.special
-
-
-
   const FastAttacks = fast.map((attack, index) => <p key={index}> {attack.name} </p>)
-
   const SpecialAttacks = special.map((attack, index) => <p key={index}> {attack.name} </p>)
-
   const Weaknesses = pokemon.weaknesses.map((weakness, index) => <p key={index}> {weakness} </p>)
-
   const Resistances = pokemon.resistant.map((resistance, index) => <p key={index}> {resistance} </p>)
 
   return (
-    <div>
-        <img
-          className="Image"
-          src={pokemon.image}
-          alt={"image of " + pokemon.name}
-        />
-        <poke-name name={pokemon.name} />  {/* here is my lit element*/ }
-        <h3>
+    <div className="content">
+      <p>
           Number {pokeParser(number)}
-        </h3>
+      </p>
+      <poke-name name={pokemon.name} />  {/* here is my lit element*/ }
       <div className="Row">
         <div className="Section">
           <h3>Weaknesses:</h3>
           {Weaknesses}
         </div>
+        <img
+          className="Image"
+          src={pokemon.image}
+          alt={"image of " + pokemon.name}
+        />
         <div className="Section">
           <h3>Resistances:</h3>
           {Resistances}
@@ -108,13 +102,18 @@ function PokeContainer({children}) {
         <div class="blue-thing">
         </div>
             {children}        
-          <div class="door">
-          </div>
+          <div class="door"/>
         </div>
       </div>
   )
 }
 
+const Nav = ({number, onClick}) => (
+  <div className="ButtonContainer">
+    <button className="Button" onClick={() => onClick(Math.max(number - 1, 0))}>Prev</button>
+    <button className="Button" onClick={() => onClick(Math.min(number + 1, 150))}>Next</button>
+  </div>
+)
 
 
 function App() {
@@ -122,8 +121,9 @@ function App() {
   return (
     <div className="App">
       <PokeContainer>
-        <Pokemons number={number} />
+        <Pokemons number={number} />        
       </PokeContainer>
+      <Nav number={number} onClick={setNumber} />
     </div>
   );
 }

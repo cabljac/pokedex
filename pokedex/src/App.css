@@ -23,33 +23,39 @@
   margin-right: 2vw;
   margin-left: 2vw;
   font-size: small;
-  background-color: white;
+  border-radius: 10px;
+  padding: 5px;
+  border-style:solid;
+  background: white;
 }
 
 .Image {
   width: auto;
   height: 20vh;
-
+  border-style:solid;
+  border-radius: 5px;
+  max-width: 25vh;
 }
 
 .ButtonContainer {
-  position: relative;
+  position: absolute;
+  width: 80%;
+  justify-content: space-between;
   flex-direction: row;
   display: flex;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  justify-content: center;
-  margin-bottom: 5vh;
-  margin-top: 5vh
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%
 }
 
 .Button {
   position: relative;
-  margin-left: 2vw;
-  margin-right: 2vw;
   height: 7vh;
   border-radius: 5vw;
-  min-width: 200;
+  min-width: 100px;
+  background-color: #CC0000;
+  color: white;
+  font-size: large;
 }
 
 .Button:focus { outline: none;}
@@ -61,9 +67,9 @@ div.door {
     position: absolute;
     z-index:10; 
     top: 23%;
-    width:50vh;
-    height:60vh;
-    background:red;
+    width:60vh;
+    height:68vh;
+    background:#CC0000;
     border-width:2;
     border-color:black;
     border-radius:10;
@@ -83,9 +89,9 @@ div.door {
 }
 
 div.back {
-    width:50vh;
-    height:80vh;
-    background:red;
+    width:60vh;
+    height:95vh;
+    background:#CC0000;
     border-width:2;
     border-color:black;
     border-radius:0px 20px 20px 0px;
@@ -112,4 +118,8 @@ div.back {
   margin: 100 100 100 100;
   width: 100%;
   z-index: -1;
+}
+
+.content {
+  margin-top: 8vw;
 }
