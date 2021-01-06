@@ -43,8 +43,10 @@ type pokeprops = { number: number }
 const Pokemons = ({ number }: pokeprops) => {
   
   const [freeze] = useState(0)
-  const { loading, error, data } = useQuery(GET_POKEMONS, {variables: {freeze: freeze}})  
-  if (loading) return <p>Loading</p>;
+  const { loading, error, data } = useQuery(GET_POKEMONS, { variables: { freeze: freeze } })
+  
+
+  if (loading) { console.log("loading");  return < p > Loading</p >;}
   if (error) return <p>Error! {error.message}</p>;
 
   const pokemon = data.pokemons[number]
