@@ -71,7 +71,7 @@ div.door {
     z-index:10; 
     top: 23%;
     width:60vh;
-    height:68vh;
+    height:55vh;
     background:#CC0000;
     border-width:2;
     border-color:black;
@@ -88,12 +88,13 @@ div.door {
     to {
        -webkit-transform: perspective(300) rotateY(-180deg);
         -webkit-transform-origin: 0% 0%;
+        z-index: -1;
     }
 }
 
 div.back {
     width:40vw;
-    height:95vh;
+    height:80vh;
     background:#CC0000;
     border-width:2;
     border-color:black;
@@ -119,6 +120,7 @@ div.back {
   justify-content: center;
   display: flex;
   margin: 100 100 100 100;
+  top: 5%;
   width: 100%;
   z-index: -1;
 }
