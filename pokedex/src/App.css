@@ -16,11 +16,14 @@
   padding-left: 2vw;
   padding-right: 2vw;
   justify-content: center;
+  margin-top: 4px;
 }
 
 .Section {
   margin-right: 2vw;
   margin-left: 2vw;
+  font-size: small;
+  background-color: white;
 }
 
 .Image {
@@ -50,3 +53,63 @@
 }
 
 .Button:focus { outline: none;}
+
+
+/* messing around with an animation: */
+
+div.door {
+    position: absolute;
+    z-index:10; 
+    top: 23%;
+    width:50vh;
+    height:60vh;
+    background:red;
+    border-width:2;
+    border-color:black;
+    border-radius:10;
+    border-radius:0px 20px 20px 0px;
+    border-style:solid;
+    -webkit-animation: pokedex 2.9s ease 0s forwards;
+}
+@keyframes pokedex {
+    from {
+       -webkit-transform: perspective(300) rotateY(0deg);
+       -webkit-transform-origin: 0% 0%;
+    }
+    to {
+       -webkit-transform: perspective(300) rotateY(-180deg);
+        -webkit-transform-origin: 0% 0%;
+    }
+}
+
+div.back {
+    width:50vh;
+    height:80vh;
+    background:red;
+    border-width:2;
+    border-color:black;
+    border-radius:0px 20px 20px 0px;
+    border-style:solid;
+}
+
+.blue-thing {
+  background:#89CFF0;
+  border-color:black;
+  border-style:solid;
+  width:40px;
+  height:40px;
+  border-radius:25px;
+  position: relative;
+  left: 70%;
+  top: 5%
+}
+
+.PokeContainer {
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 100 100 100 100;
+  width: 100%;
+  z-index: -1;
+}

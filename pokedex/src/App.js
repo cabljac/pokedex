@@ -68,17 +68,15 @@ const Pokemons = ({ number }: pokeprops) => {
 
   return (
     <div>
-      <div className="Section">
         <img
           className="Image"
-          src={data.pokemons[number].image}
-          alt={"image of " + data.pokemons[number].name}
+          src={pokemon.image}
+          alt={"image of " + pokemon.name}
         />
         <poke-name name={pokemon.name} />  {/* here is my lit element*/ }
         <h3>
           Number {pokeParser(number)}
         </h3>
-      </div>
       <div className="Row">
         <div className="Section">
           <h3>Weaknesses:</h3>
@@ -103,16 +101,29 @@ const Pokemons = ({ number }: pokeprops) => {
   )
 }
 
+function PokeContainer({children}) {
+  return (
+    <div class="PokeContainer">
+        <div class="back">
+        <div class="blue-thing">
+        </div>
+            {children}        
+          <div class="door">
+          </div>
+        </div>
+      </div>
+  )
+}
+
+
 
 function App() {
   const [number, setNumber] = useState(0)
   return (
     <div className="App">
-        <div className="ButtonContainer">
-          <button className="Button" onClick={() => setNumber(Math.max(number - 1, 0))}>Prev</button>
-          <button className="Button" onClick={() => setNumber(Math.min(number + 1, 150))}>Next</button>
-        </div>
+      <PokeContainer>
         <Pokemons number={number} />
+      </PokeContainer>
     </div>
   );
 }
