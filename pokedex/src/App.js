@@ -16,7 +16,7 @@ function App() {
   const [number, setNumber] = useState(0)
 
 
-  if (width > 500 && height > 400) {
+  if (width > 500 && height > 600) {
     return (
       <div className="App">
         <PokeContainer>
