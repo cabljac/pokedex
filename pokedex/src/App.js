@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 import { gql, useQuery } from '@apollo/client';
@@ -46,13 +46,13 @@ type pokeprops = { number: number }
 
 const Pokemons = ({ number }: pokeprops) => {
   
-  const { loading, error, data } = useQuery(GET_POKEMONS) 
+  const [freeze] = useState(0)
+
+  const { loading, error, data } = useQuery(GET_POKEMONS, {variables: {freeze: freeze}})  
   if (loading) return <p>Loading</p>;
   if (error) return <p>Error! {error.message}</p>;
 
   const pokemon = data.pokemons[number]
-
-
   const fast = pokemon.attacks.fast
   const special = pokemon.attacks.special
   const FastAttacks = fast.map((attack, index) => <p key={index}> {attack.name} </p>)
