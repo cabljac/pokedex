@@ -1,7 +1,7 @@
 import '../App.css';
+import React, { FunctionComponent } from 'react'
 
-export default function PokeContainer({children}) {
-  return (
+const  PokeContainer : FunctionComponent = ({children}) => (
     <div className="PokeContainer">
         <div className="back">
         <div className="blue-thing">
@@ -10,5 +10,6 @@ export default function PokeContainer({children}) {
           <div className="door"/>
         </div>
       </div>
-  )
-}
+)
+
+export default PokeContainer
