@@ -4,23 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client';
+import {
+  useQuery,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from "react-query";
 
-
-const PORT = 'http://localhost:5000' // address of graphql pokemon server
-
-
-
-const client = new ApolloClient({
-  uri: PORT,
-  cache: new InMemoryCache()
-});
+const client = new QueryClient();
 
 ReactDOM.render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
+    <QueryClientProvider client={client}>
       <App />
-    </ApolloProvider>
+    </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
