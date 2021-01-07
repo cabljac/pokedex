@@ -11,23 +11,25 @@ function App() {
   const {width, height} = useWindowSize()
   const [number, setNumber] = useState(0)
 
+  if (!width || !height) { return <p>Loading</p> } else {
 
-  if (width > 500 && height > 600) {
-    return (
-      <div className="App">
-        <PokeContainer>
+    if (width! > 500 && height! > 600) {
+      return (
+        <div className="App">
+          <PokeContainer>
+            <Pokemons number={number} />
+          </PokeContainer>
+          <Nav number={number} onClick={setNumber} />
+        </div>
+      );
+    } else {
+      return (
+        <div className="App">
           <Pokemons number={number} />
-        </PokeContainer>
-        <Nav number={number} onClick={setNumber} />
-      </div>
-    );
-  } else {
-    return (
-      <div className="App">
-        <Pokemons number={number} />
-        <Nav number={number} onClick={setNumber} />
-      </div>
-    );
+          <Nav number={number} onClick={setNumber} />
+        </div>
+      );
+    }
   }
 }
 

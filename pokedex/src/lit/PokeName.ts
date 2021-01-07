@@ -1,8 +1,7 @@
 import { LitElement, html } from 'lit-element';
 
+
 class PokeName extends LitElement {
-
-
 
   static get properties() {
     return {
@@ -13,10 +12,11 @@ class PokeName extends LitElement {
 
   render() {
     const vowels = ["A", "E", "I", "O", "U"];
-
+    // @ts-ignore
+    const name = this.name;
     return html`
       <h2>
-        It's ${vowels.includes(this.name.charAt(0)) ? "an" : "a"} ${this.name}!
+        It's ${vowels.includes(name.charAt(0)) ? "an" : "a"} ${name}!
       </h2>
     `;
   }

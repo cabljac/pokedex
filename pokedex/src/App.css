@@ -24,7 +24,7 @@
   height: auto;
   margin-right: 2vw;
   margin-left: 2vw;
-  font-size: x-small;
+  font-size: max(1vw,1.2vh);
   border-radius: 10px;
   padding: 2px;
   border-style:solid;
@@ -49,6 +49,19 @@
   margin-right: 10%;
   margin-top: 5%
 }
+
+.ButtonContainerAlt {
+  position: absolute;
+  width: 80%;
+  justify-content: space-between;
+  flex-direction: row;
+  display: flex;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
+}
+
+
 
 .Button {
   position: relative;
