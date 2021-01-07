@@ -3,7 +3,7 @@ import '../App.css';
 
 import { gql, useQuery } from '@apollo/client';
 
-import '../lit/PokeName'
+import '../lit/PokeName.ts'
 
 const GET_POKEMONS = gql`
   {

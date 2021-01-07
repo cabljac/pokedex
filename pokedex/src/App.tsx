@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-
-import { gql, useQuery } from '@apollo/client';
-
-import './lit/PokeName'
 import Nav from './components/Nav'
 import PokeContainer from './components/PokeContainer'
 import Pokemons from './components/Pokemons'
