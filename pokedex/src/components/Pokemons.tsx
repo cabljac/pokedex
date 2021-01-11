@@ -1,31 +1,13 @@
 import React from 'react';
 import '../App.css';
-import { request, gql } from "graphql-request";
-import {
-  useQuery,
-} from "react-query";
+import { gql } from "graphql-request";
+
 
 import '../lit/PokeName.ts'
+import usePokeQuery from '../hooks/usePokeQuery';
 
+import {pokeprops, Pokemon} from '../types'
 
-const PORT = 'http://localhost:5000' // address of graphql pokemon server
-const GET_POKEMONS = gql`
-  query {
-    pokemons(first : 151) {
-      name
-      image
-      resistant
-      weaknesses
-      attacks {
-        fast {
-          name
-        }
-        special {
-          name
-        }
-      }
-    }
-  }`
 
 const pokeParser = (num : number) => {
   num = num + 1;
@@ -38,47 +20,9 @@ const pokeParser = (num : number) => {
   }
 }
 
-
-
-type pokeprops = { number: number }
-
-interface Attacks {
-  fast: { name: string}[];
-  special: { name: string}[]
-}
-
-interface Pokemon {
-  name: string
-  image: string
-  resistant: string[]
-  weaknesses: string[]
-  attacks: Attacks
-}
-
-declare global {
-    namespace JSX {
-        interface IntrinsicElements {
-            'poke-name': PokeNameProps
-        }
-    }
-}
-
-interface PokeNameProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
-  name: string
-}
-
-
 const Pokemons = ({ number }: pokeprops) => {
 
-  const { status, data, error } = useQuery<Pokemon[],Error>("pokemons", async () => {
-    const {
-      pokemons
-    } = await request(
-      PORT,
-      GET_POKEMONS
-      );   
-    return pokemons;
-  })
+  const { status, data, error } = usePokeQuery();
   
   switch (status) {
     case "error":
