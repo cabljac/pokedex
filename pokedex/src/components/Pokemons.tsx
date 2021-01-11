@@ -1,12 +1,13 @@
-import React from 'react';
+
 import '../App.css';
-import { gql } from "graphql-request";
+import numberToIDs from '../parsers/numberToID';
 
 
 import '../lit/PokeName.ts'
 import usePokeQuery from '../hooks/usePokeQuery';
 
 import {pokeprops, Pokemon} from '../types'
+import { useEffect } from 'react';
 
 
 const pokeParser = (num : number) => {
@@ -21,6 +22,13 @@ const pokeParser = (num : number) => {
 }
 
 const Pokemons = ({ number }: pokeprops) => {
+
+  // useEffect(() => {
+  //   console.log(number);
+    
+  //   console.log(numberToIDs(number));
+  // }, [number])
+
 
   const { status, data, error } = usePokeQuery();
   

@@ -6,6 +6,8 @@ import {
 
 import { Pokemon } from '../types'
 
+import numbertoID from '../parsers/numberToID';
+
 import '../lit/PokeName.ts'
 
 
@@ -29,6 +31,47 @@ const GET_POKEMONS = gql`
       }
     }
   }`
+
+
+
+// the following doesn't really work, as there is no appropriate schema on backend.
+
+// const getPokemons = (current: number) => {
+
+//   var RADIUS = 10;
+//   var lowerBound = Math.max(current - RADIUS, 0)
+//   var upperBound = Math.min(current + RADIUS, 151)
+
+//   var arrIDs = [];
+
+//   while (lowerBound <= upperBound) {
+//     arrIDs.push(numbertoID(lowerBound++));
+//   }
+
+
+//
+//   return (
+//     gql`
+//   query {
+//     pokemons(first : 151) {
+//       name
+//       image
+//       resistant
+//       weaknesses
+//       attacks {
+//         fast {
+//           name
+//         }
+//         special {
+//           name
+//         }
+//       }
+//     }
+//   }`
+//   )
+// }
+
+
 
 
 const usePokeQuery = () => useQuery<Pokemon[], Error>("pokemons", async () => {

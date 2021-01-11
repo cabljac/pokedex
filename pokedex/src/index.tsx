@@ -5,8 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import {
-  useQuery,
-  useQueryClient,
   QueryClient,
   QueryClientProvider,
 } from "react-query";
