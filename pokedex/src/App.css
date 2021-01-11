@@ -91,6 +91,7 @@ div.door {
     border-radius:10;
     border-radius:0px 20px 20px 0px;
     border-style:solid;
+    animation:  pokedex 2.9s ease 0s forwards;
     -webkit-animation: pokedex 2.9s ease 0s forwards;
 }
 @keyframes pokedex {
